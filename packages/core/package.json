@@ -1,0 +1,13 @@
+{
+    "name": "@metro5/core",
+    "version": "1.0.0",
+    "main": "./src/index.js",
+    "license": "MIT",
+    "dependencies": {
+        "@metro5/query": "^1.0.0",
+        "@metro5/datetime": "^1.0.0",
+        "@metro5/cake": "^1.0.0",
+        "@metro5/color": "^1.0.0",
+        "@metro5/animation": "^1.0.0"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "name": "@metro5/animation",
+    "version": "1.0.0",
+    "main": "./src/index.js",
+    "license": "MIT",
+    "scripts": {
+        "test": "jest --color"
+    },
+    "dependencies": {
+    }
+}
