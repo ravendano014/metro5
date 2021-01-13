@@ -1,6 +1,6 @@
-import Easing from "./easing"
+import Easing from "../components/easing"
 
-export const defaultAnimationProps = {
+const defaultAnimationProps = {
     id: null,
     el: null,
     draw: {},
@@ -21,9 +21,4 @@ export const defaultAnimationProps = {
     onDone: () => {}
 }
 
-export const defaultChainOptions = {
-    loop: false,
-    onChainItem: null,
-    onChainItemComplete: null,
-    onChainComplete: null
-}
+export default defaultAnimationProps

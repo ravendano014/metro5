@@ -1,5 +1,5 @@
 import Easing from "./easing";
-import {defaultAnimationProps} from "./defaults"
+import defaultAnimationProps from "../defaults/animation"
 import {isNull} from "@metro5/utils"
 import createAnimationMap from "../helpers/animation-map"
 import applyProps from "../helpers/apply-props"

@@ -8,7 +8,7 @@ import { DIST_UNIVERSAL, SRC, PACKAGE_NAME } from '../const';
 export default {
     input: `${SRC}/index.js`,
     output: {
-        file: `${DIST_UNIVERSAL}/cake.js`,
+        file: `${DIST_UNIVERSAL}/animation.js`,
         format: 'iife',
         name: PACKAGE_NAME,
         sourcemap: false,

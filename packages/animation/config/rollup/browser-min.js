@@ -8,7 +8,7 @@ import {uglify} from "rollup-plugin-uglify";
 export default {
     input: `${SRC}/index.js`,
     output: {
-        file: `${DIST_UNIVERSAL}/cake.min.js`,
+        file: `${DIST_UNIVERSAL}/animation.min.js`,
         format: 'iife',
         name: PACKAGE_NAME,
         sourcemap: false,

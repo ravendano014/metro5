@@ -1,5 +1,5 @@
-import {defaultChainOptions} from "./defaults"
-import startAnimation from "./animate";
+import defaultChainOptions from "../defaults/chain"
+import startAnimation from "./animate"
 
 export default function chainAnimation(arr, opt){
     const o = Object.assign({}, defaultChainOptions, opt);
