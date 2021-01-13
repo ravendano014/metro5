@@ -142,12 +142,12 @@ export default function startAnimation(args){
                     }
 
                     if (typeof loop === "boolean") {
-                        setTimeout(function () {
+                        setTimeout( () => {
                             play();
                         }, pauseStart);
                     } else {
                         if (loop > ANIMATION_QUEUE[animationID].loop) {
-                            setTimeout(function () {
+                            setTimeout( () => {
                                 play();
                             }, pauseStart);
                         } else {
@@ -166,7 +166,7 @@ export default function startAnimation(args){
             }
         };
         if (defer > 0) {
-            setTimeout(function() {
+            setTimeout(() => {
                 play();
             }, defer);
         } else {

@@ -1,11 +1,11 @@
 import {getGlobalObject} from "@metro5/utils"
-import functions from "./functions"
-import {cake} from "./type"
+import functions from "./type/functions"
+import Cake, {cake as _cake} from "./type"
 
-let Cake = Object.assign({}, functions)
+let _Cake = Object.assign({}, Cake, functions)
 
 let global = getGlobalObject()
 
-global.Cake = Cake
-global.cake = cake
+global.Cake = _Cake
+global.cake = _cake
 

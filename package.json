@@ -28,6 +28,7 @@
   "scripts": {
     "test": "lerna run test --stream",
     "update:version": "lerna version --no-push",
+    "bootstrap": "lerna bootstrap --use-workspaces",
     "build": ""
   },
   "devDependencies": {
@@ -35,9 +36,12 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@rollup/plugin-babel": "^5.2.2",
+    "babel-loader": "^8.2.2",
     "eslint": "^7.17.0",
     "jest": "^26.6.3",
     "lerna": "^3.22.1",
-    "rollup": "^2.36.1"
+    "rollup": "^2.36.1",
+    "webpack": "^5.13.0",
+    "webpack-cli": "^4.3.1"
   }
 }
