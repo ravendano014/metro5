@@ -4,6 +4,7 @@
     "main": "./src/index.js",
     "license": "MIT",
     "dependencies": {
+        "@metro5/utils": "^1.0.0",
         "@metro5/query": "^1.0.0",
         "@metro5/datetime": "^1.0.0",
         "@metro5/cake": "^1.0.0",

@@ -7,5 +7,7 @@
         "test": "jest --color"
     },
     "dependencies": {
+        "@metro5/utils": "^1.0.0",
+        "@metro5/cake": "^1.0.0"
     }
 }
