@@ -29,11 +29,12 @@
     "test": "lerna run test --stream",
     "update:version": "lerna version --no-push",
     "bootstrap": "lerna bootstrap --use-workspaces",
-    "build": ""
+    "build": "lerna run build --stream"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
     "@rollup/plugin-babel": "^5.2.2",
     "babel-loader": "^8.2.2",

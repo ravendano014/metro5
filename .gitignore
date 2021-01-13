@@ -1,5 +1,8 @@
 .idea
 lib
+dist
+packages/**/lib
+packages/**/dist
 node_modules
 *.bat
 .ftpauth
