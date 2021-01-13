@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            display: block;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .ball {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at 100px 100px, #5cabff, #000);
+        }
+    </style>
+</head>
+<body>
+    <div class="ball"></div>
+    <script src="../dist/animation.js"></script>
+    <script>
+        const field = document.querySelector("body");
+        const w = field.clientWidth, h = field.clientHeight;
+        const ball = document.querySelector(".ball");
+        const animations = [
+            {
+                draw: {
+                    left: [0, w - ball.clientWidth]
+                },
+                dur: 2000,
+                ease: "easeOutQuad",
+                loop: true
+            },
+            {
+                draw: {
+                    top: [0, h - ball.clientHeight]
+                },
+                dur: 2000,
+                ease: "easeOutBounce",
+                loop: true
+            },
+            {
+                draw: {rotate: "2turn"},
+                dur: 2000,
+                loop: true
+            }
+        ];
+
+        animations.forEach( (a) => {
+            a.el = ball;
+            startAnimation(a);
+        } )
+    </script>
+</body>
+</html>

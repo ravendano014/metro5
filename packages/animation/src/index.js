@@ -6,7 +6,7 @@ import chainAnimation from "./components/chain"
 import {stopAnimation, stopAnimationAll} from "./components/stop"
 import {resumeAnimation, resumeAnimationAll} from "./components/resume"
 import {pauseAnimation, pauseAnimationAll} from "./components/pause"
-import {getGlobalObject} from "@metro5/utils/lib/es"
+import {getGlobalObject} from "@metro5/utils"
 
 const _global = getGlobalObject();
 

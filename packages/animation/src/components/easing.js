@@ -28,14 +28,16 @@ const eases = {
     }
 }
 
-['Quad', 'Cubic', 'Quart', 'Quint', 'Expo'].forEach((name, i) => eases[name] = () => t => Math.pow(t, i + 2));
+const mode = ['Quad', 'Cubic', 'Quart', 'Quint', 'Expo']
+
+mode.forEach((name, i) => eases[name] = () => t => Math.pow(t, i + 2))
 
 Object.keys(eases).forEach((name) => {
-    const easeIn = eases[name];
+    const easeIn = eases[name]
 
-    Easing['easeIn' + name] = easeIn;
-    Easing['easeOut' + name] = (a, b) => t => 1 - easeIn(a, b)(1 - t);
-    Easing['easeInOut' + name] = (a, b) => t => t < 0.5 ? easeIn(a, b)(t * 2) / 2 : 1 - easeIn(a, b)(t * -2 + 2) / 2;
+    Easing['easeIn' + name] = easeIn
+    Easing['easeOut' + name] = (a, b) => t => 1 - easeIn(a, b)(1 - t)
+    Easing['easeInOut' + name] = (a, b) => t => t < 0.5 ? easeIn(a, b)(t * 2) / 2 : 1 - easeIn(a, b)(t * -2 + 2) / 2
 });
 
 export default Easing;
