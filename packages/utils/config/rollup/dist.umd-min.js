@@ -15,9 +15,9 @@ export default {
         }),
     ],
     output: {
-        file: `${DIST_UNIVERSAL}/animation.min.js`,
+        file: `${DIST_UNIVERSAL}/utils.min.js`,
         format: 'iife',
-        name: '__animation',
+        name: 'm5_utils',
         sourcemap: true,
         banner: banner,
     },

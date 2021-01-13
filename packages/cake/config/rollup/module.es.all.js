@@ -1,7 +1,8 @@
 import babel from 'rollup-plugin-babel';
 import glob from 'glob';
-
 import { DIST_MODULE_ES, SRC } from '../const';
+import resolve from "rollup-plugin-node-resolve";
+import commonjs from "rollup-plugin-commonjs";
 
 function modulesPaths() {
     return glob.sync(SRC + '/*/*.js', {
@@ -15,11 +16,13 @@ function modulesPaths() {
 
 export default {
     input: modulesPaths(),
-    plugins: [babel()],
-
     output: {
         dir: DIST_MODULE_ES,
         format: 'es',
         chunkFileNames: 'internal/[name].js',
     },
+    plugins: [babel(),
+        resolve(),
+        commonjs()
+    ],
 };

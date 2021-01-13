@@ -1,6 +1,7 @@
 import {isNull} from "@metro5/utils"
 import validElement from "./valid-element"
-import {camelCase} from "@metro5/cake"
+
+const camelCase = s => s.replace( /-([a-z])/g, (all, letter) => letter.toUpperCase());
 
 export default function setStyle (el, key, val, unit, toInt) {
 
