@@ -6,6 +6,9 @@ import getUnit from "./components/get-unit"
 import parseUnit from "./components/parse-unit"
 import getGlobalObject from "./components/get-global"
 import matches from "./components/matches"
+import random from "./components/random"
+import dec2hex from "./components/dec-to-hex"
+import hex2dec from "./components/hex-to-dec"
 
 export {
     each,
@@ -15,5 +18,8 @@ export {
     getUnit,
     parseUnit,
     getGlobalObject,
-    matches
+    matches,
+    random,
+    dec2hex,
+    hex2dec
 }

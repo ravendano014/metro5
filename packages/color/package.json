@@ -3,6 +3,13 @@
     "version": "1.0.0",
     "main": "./src/index.js",
     "license": "MIT",
+    "scripts": {
+        "test": "jest --color --coverage",
+        "build": "rimraf -rf dist lib && npm run build-browser && npm run build-module",
+        "build-browser": "rollup -c config/rollup/browser-min.js && rollup -c config/rollup/browser.js",
+        "build-module": "rollup -c config/rollup/module.umd.js && rollup -c config/rollup/module.es.js"
+    },
     "dependencies": {
+        "@metro5/utils": "^1.0.0"
     }
 }
