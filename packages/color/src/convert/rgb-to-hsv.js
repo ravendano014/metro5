@@ -7,14 +7,14 @@ export default function rgb2hsv(color){
     let _color = parse(color);
 
     if (!isRGB(_color) && !isRGBA(_color)) {
-        return undefined
+        throw new Error("Argument is not a RGB or RGBA color")
     }
 
     let hsv = new HSV();
     let h, s, v;
-    let r = color.r / 255,
-        g = color.g / 255,
-        b = color.b / 255;
+    let r = _color.r / 255,
+        g = _color.g / 255,
+        b = _color.b / 255;
 
     let max = Math.max(r, g, b);
     let min = Math.min(r, g, b);

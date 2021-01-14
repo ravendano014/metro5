@@ -1,23 +1,26 @@
-import expandHexColor from "../helpers/expand-hex";
-import RGB from "../primitives/rgb";
+import expandHexColor from "../helpers/expand-hex"
+import RGB from "../primitives/rgb"
+import {isNull} from "@metro5/utils"
+import RGBA from "../primitives/rgba"
+import parse from "../helpers/parse";
+import isHEX from "../check/is-hex";
 
-export default function hex2rgb(color){
-    if (typeof color !== "string") {
-        throw new Error("Value is not a string!")
+export default function hex2rgb(color, alpha){
+    let _color = parse(color)
+
+    if (!isHEX(_color)) {
+        throw new Error("Argument is not a HEX color")
     }
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(
-        expandHexColor(color)
-    );
 
-    if (!result) {
-        return undefined
+    const res = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(_color);
+
+    if (isNull(res)) {
+        throw new Error("Argument is not a HEX color")
     }
 
-    const rgb = [
-        parseInt(result[1], 16),
-        parseInt(result[2], 16),
-        parseInt(result[3], 16)
-    ];
+    let r = parseInt(res[1], 16)
+    let g = parseInt(res[2], 16)
+    let b = parseInt(res[3], 16)
 
-    return new RGB(rgb[0], rgb[1], rgb[2])
+    return isNull(alpha) ? new RGB(r, g, b) : new RGBA(r, g, b, alpha)
 }
