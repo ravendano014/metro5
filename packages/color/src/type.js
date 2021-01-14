@@ -142,9 +142,32 @@ export default class Color {
     shade(amount){return f.shade(this._value, amount)}
     spin(amount){return f.spin(this._value, amount)}
 
-    mix(){}
-    add(){}
-    multiple(){}
+    mix(color, amount){
+        return f.mix(this._value, color, amount)
+    }
+
+    toMix(color, amount){
+        this._value = f.mix(this._value, color, amount)
+        return this
+    }
+
+    add(color, type){
+        return f.add(this._value, color, type || this._type)
+    }
+
+    toAdd(color){
+        this._value = f.add(this._value, color, this._type)
+        return this
+    }
+
+    multiple(color){
+        return f.multiply(this._value, color)
+    }
+
+    toMultiply(color){
+        this._value = f.multiply(this._value, color)
+        return this
+    }
 
     websafe(){
         return f.websafe(this._value)
