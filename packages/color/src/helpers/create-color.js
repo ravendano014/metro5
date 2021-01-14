@@ -1,8 +1,9 @@
 import colorTypes from "../defines/color-types"
 import parse from "./parse";
-import isColor from "./is-color";
+import isColor from "../check/is-color";
+import toColor from "../convert/to-color";
 
-export default function(colorType = colorTypes.HEX, from = "#000000"){
+export default function createColor(colorType = colorTypes.HEX, from = "#000000"){
     let color;
 
     if (typeof from === "string") {

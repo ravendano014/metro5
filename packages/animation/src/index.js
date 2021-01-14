@@ -24,7 +24,7 @@ if (typeof _global !== "undefined") {
     _global.easeAnimation = Easing;
 }
 
-export {
+export const AnimationNS = {
     defaultAnimationProps,
     defaultChainOptions,
     Easing,
