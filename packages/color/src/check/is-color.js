@@ -1,4 +1,4 @@
-import parse from "./parse";
+import parse from "../helpers/parse";
 import isHEX from "./is-hex";
 import isRGB from "./is-rgb";
 import isRGBA from "./is-rgba";

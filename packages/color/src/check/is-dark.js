@@ -1,9 +1,12 @@
 import isColor from "./is-color";
+import parse from "../helpers/parse";
 
 export default function isDark(color){
-    if (!isColor(color)) return;
+    let _color = parse(color)
 
-    const rgb = toRGB(color);
+    if (!isColor(_color)) return;
+
+    const rgb = toRGB(_color);
     const YIQ = (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
 
     return YIQ < 128;
