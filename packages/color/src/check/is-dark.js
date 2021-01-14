@@ -1,5 +1,6 @@
 import isColor from "./is-color";
 import parse from "../helpers/parse";
+import toRGB from "../convert/to-rgb";
 
 export default function isDark(color){
     let _color = parse(color)

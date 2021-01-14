@@ -6,6 +6,7 @@ import rgb2hsv from "./rgb-to-hsv";
 import rgb2websafe from "./rgb-to-websafe";
 import {isNull} from "@metro5/utils";
 import HSLA from "../primitives/hsla";
+import toRGB from "./to-rgb";
 
 export default function hsl2websafe(color){
     let _color = parse(color)
