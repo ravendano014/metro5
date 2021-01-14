@@ -5,7 +5,8 @@ import {getGlobalObject} from "@metro5/utils"
 let _global = getGlobalObject()
 
 if (typeof _global !== "undefined") {
-    _global.Color = {...functions };
+    _global.ColorFn = {...functions };
+    _global.Color = Color;
     _global.color = color;
 }
 

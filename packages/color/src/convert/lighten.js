@@ -5,7 +5,7 @@ import clamp from "../helpers/clamp";
 import colorType from "../helpers/color-type";
 import toColor from "./to-color";
 
-export default function lighten(color, amount = 0){
+export default function lighten(color, amount = 10){
     let hsl, type, alpha;
     let _color = parse(color)
 

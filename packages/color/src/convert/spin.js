@@ -4,7 +4,7 @@ import colorType from "../helpers/color-type"
 import toColor from "./to-color"
 import isColor from "../check/is-color";
 
-export default function spin(color, amount = 0){
+export default function spin(color, amount = 10){
     let hsl, type, alpha, hue
     let _color = parse(color)
 
