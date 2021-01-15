@@ -18,6 +18,8 @@ import isPrivateAddress from "./components/is-private-address"
 import isPlainObject from "./components/is-plain-object"
 import parseHTML from "./components/parse-html"
 import serialize, {serializeToQueryString} from "./components/serialize"
+import nearest from "./components/nearest"
+import between from "./components/between"
 
 export {
     each,
@@ -40,5 +42,7 @@ export {
     isPlainObject,
     parseHTML,
     serialize,
-    serializeToQueryString
+    serializeToQueryString,
+    nearest,
+    between
 }
