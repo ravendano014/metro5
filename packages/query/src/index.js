@@ -1,8 +1,4 @@
-import Query from "./class.js"
-
-const $ = function(sel, ctx){
-    return new Query(sel, ctx)
-}
+import Query, { $ } from "./class.js"
 
 export default Query
 export { $ }

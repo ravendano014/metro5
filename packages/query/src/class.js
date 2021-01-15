@@ -5,3 +5,7 @@ export default class Query extends Array {
 
     }
 }
+
+export const $ = function(sel, ctx){
+    return new Query(sel, ctx)
+}
