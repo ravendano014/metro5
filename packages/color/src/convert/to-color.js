@@ -6,6 +6,7 @@ import isColor from "../check/is-color";
 import toHSV from "./to-hsv";
 import toHSL from "./to-hsl";
 import toHSLA from "./to-hsla";
+import toCMYK from "./to-cmyk";
 
 export default function toColor(color, type, alpha){
     let _color = parse(color), res

@@ -1,4 +1,4 @@
-import functions from "@metro5/cake/src/functions";
+import functions from "./functions";
 import Color, {color} from "./type";
 import {getGlobalObject} from "@metro5/utils"
 

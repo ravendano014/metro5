@@ -29,7 +29,14 @@
     "test": "lerna run test --stream",
     "update:version": "lerna version --no-push",
     "bootstrap": "lerna bootstrap --use-workspaces",
-    "build": "lerna run build --stream"
+    "build": "lerna run build --stream",
+    "build:animation": "lerna --scope @metro5/animation exec -- npm run build",
+    "build:color": "lerna --scope @metro5/color exec -- npm run build",
+    "build:utils": "lerna --scope @metro5/utils exec -- npm run build",
+    "build:cake": "lerna --scope @metro5/cake exec -- npm run build",
+    "build:datetime": "lerna --scope @metro5/datetime exec -- npm run build",
+    "build:query": "lerna --scope @metro5/query exec -- npm run build",
+    "build:core": "lerna --scope @metro5/core exec -- npm run build"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",

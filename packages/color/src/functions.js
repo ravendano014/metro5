@@ -20,7 +20,6 @@ import parse from "./helpers/parse";
 import randomColor from "./helpers/random-color";
 import toString from "./helpers/to-string";
 
-import check from "./check/check";
 import isColor from "./check/is-color";
 import isCMYK from "./check/is-cmyk";
 import isHSLA from "./check/is-hsla";
@@ -103,7 +102,6 @@ export default {
     randomColor,
     toString,
 
-    check,
     isColor,
     isCMYK,
     isHSV,

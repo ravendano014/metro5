@@ -7,11 +7,11 @@ import { DIST_UNIVERSAL, SRC, PACKAGE_NAME } from '../const';
 import {uglify} from "rollup-plugin-uglify";
 
 export default {
-    input: `${SRC}/index.js`,
+    input: `${SRC}/global.js`,
     output: {
         file: `${DIST_UNIVERSAL}/cake.min.js`,
         format: 'iife',
-        name: PACKAGE_NAME,
+        name: "",
         sourcemap: false,
         banner: banner,
         exports: 'named',

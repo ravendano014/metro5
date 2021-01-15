@@ -2,15 +2,15 @@ import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import banner from '../banner';
-
 import { DIST_UNIVERSAL, SRC, PACKAGE_NAME } from '../const';
 
+
 export default {
-    input: `${SRC}/index.js`,
+    input: `${SRC}/global.js`,
     output: {
         file: `${DIST_UNIVERSAL}/color.js`,
         format: 'iife',
-        name: PACKAGE_NAME,
+        name: "",
         sourcemap: false,
         banner: banner,
         exports: 'named',
