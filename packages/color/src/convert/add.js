@@ -21,5 +21,5 @@ export default function add(val1, val2, returnAs){
     result.b = Math.round((c1.b + c2.b) / 2)
     result.a = Math.round((c1.a + c2.a) / 2)
 
-    return toColor(result, to, result.a)
+    return toColor(result, to)
 }

@@ -133,14 +133,77 @@ export default class Color {
         return this;
     }
 
-    darken(amount){return f.darken(this._value, amount)}
-    lighten(amount){return f.lighten(this._value, amount)}
-    brighten(amount){return f.brighten(this._value, amount)}
-    grayscale(){return f.grayscale(this._value)}
-    saturate(amount){return f.saturate(this._value, amount)}
-    desaturate(amount){return f.desaturate(this._value, amount)}
-    shade(amount){return f.shade(this._value, amount)}
-    spin(amount){return f.spin(this._value, amount)}
+    darken(amount){
+        return f.darken(this._value, amount)
+    }
+
+    toDarken(amount){
+        this._value = f.darken(this._value, amount)
+        return this
+    }
+
+    lighten(amount){
+        return f.lighten(this._value, amount)
+    }
+
+    toLighten(amount){
+        this._value = f.lighten(this._value, amount)
+        return this
+    }
+
+    brighten(amount){
+        return f.brighten(this._value, amount)
+    }
+
+    toBrighten(amount){
+        this._value = f.brighten(this._value, amount)
+        return this
+    }
+
+    grayscale(){
+        return f.grayscale(this._value)
+    }
+
+    toGrayscale(){
+        this._value = f.grayscale(this._value)
+        return this
+    }
+
+    saturate(amount){
+        return f.saturate(this._value, amount)
+    }
+
+    toSaturate(amount){
+        this._value = f.saturate(this._value, amount)
+        return this
+    }
+
+    desaturate(amount){
+        return f.desaturate(this._value, amount)
+    }
+
+    toDesaturate(amount){
+        this._value = f.desaturate(this._value, amount)
+        return this
+    }
+
+    shade(amount){
+        return f.shade(this._value, amount)
+    }
+
+    toShade(amount){
+        this._value = f.shade(this._value, amount)
+        return this
+    }
+
+    spin(amount){
+        return f.spin(this._value, amount)
+    }
+
+    toSpin(amount){
+        this._value = f.spin(this._value, amount)
+        return this
+    }
 
     mix(color, amount){
         return f.mix(this._value, color, amount)
