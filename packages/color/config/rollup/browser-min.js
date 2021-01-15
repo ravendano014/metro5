@@ -3,7 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import banner from '../banner';
 import { DIST_UNIVERSAL, SRC, PACKAGE_NAME } from '../const';
-import {uglify} from "rollup-plugin-uglify";
+import {terser} from "rollup-plugin-terser";
 
 export default {
     input: `${SRC}/global.js`,
@@ -19,9 +19,9 @@ export default {
         babel(),
         resolve(),
         commonjs(),
-        uglify({
+        terser({
             output: {
-                comments: /^!/,
+                comments: "all",
             },
         })
     ],

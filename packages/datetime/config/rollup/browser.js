@@ -2,7 +2,7 @@ import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import banner from '../banner';
-import { DIST_UNIVERSAL, SRC, PACKAGE_NAME } from '../const';
+import { DIST_UNIVERSAL, SRC } from '../const';
 
 
 export default {

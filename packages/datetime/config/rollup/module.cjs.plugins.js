@@ -23,7 +23,8 @@ export default {
         format: 'cjs',
         chunkFileNames: 'internal/[name].js',
     },
-    plugins: [babel(),
+    plugins: [
+        babel(),
         resolve(),
         commonjs()
     ],
