@@ -1,7 +1,7 @@
 import {DEFAULT_FORMAT} from "../const";
 import Datetime from "../type";
 
-const oldFormat = Datetime.prototype.format;
+const fnFormat = Datetime.prototype.format;
 
 Datetime.use({
     century(){
@@ -17,6 +17,6 @@ Datetime.use({
 
         let result = format.replace(/(\[[^\]]+])|C/g, (match, $1) => $1 || matches[match])
 
-        return oldFormat.bind(this)(result, locale)
+        return fnFormat.bind(this)(result, locale)
     }
 })
