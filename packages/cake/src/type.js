@@ -1,8 +1,6 @@
 import f from "./functions";
 
 class Cake {
-    _value;
-
     constructor(s = "") {
         this._value = ""+s
     }

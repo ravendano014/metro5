@@ -12,6 +12,7 @@ export default {
         name: PACKAGE_NAME,
         sourcemap: false,
         banner: banner,
+        exports: 'named',
     },
     plugins: [
         babel(),
