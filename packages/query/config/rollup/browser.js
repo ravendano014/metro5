@@ -20,4 +20,9 @@ export default {
         resolve(),
         commonjs()
     ],
+    onwarn: function(warning, rollupWarn) {
+        if (warning.code !== 'CIRCULAR_DEPENDENCY') {
+            rollupWarn(warning);
+        }
+    }
 };

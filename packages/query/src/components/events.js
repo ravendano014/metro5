@@ -1,5 +1,4 @@
-import Query from "../query"
-import $ from "../$"
+import {$} from "../query"
 import {each, isEmpty, isNull, isPlainObject} from "@metro5/utils";
 import {camelCase, split} from "@metro5/cake";
 import normalizeName from "../helpers/normalise-name";

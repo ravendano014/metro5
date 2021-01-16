@@ -1,5 +1,5 @@
 import {each, isNull} from "@metro5/utils";
-import $ from "./$";
+import {$} from "../query"
 import createScript from "../helpers/create-script";
 
 $.script = (el) => {

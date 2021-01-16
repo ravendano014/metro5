@@ -1,5 +1,5 @@
 import {isNull} from "@metro5/utils";
-import $ from "../components/$";
+import {$} from "../query"
 
 export default function createScript(script){
     const s = document.createElement('script');

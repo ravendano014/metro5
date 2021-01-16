@@ -1,6 +1,6 @@
 import {split} from "@metro5/cake";
 import {isNull} from "@metro5/utils";
-import $ from "../$";
+import {$} from "../query"
 
 const Classes = {
     addClass(){},

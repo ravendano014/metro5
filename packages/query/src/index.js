@@ -1,5 +1,4 @@
-import Query from "./query"
-import $ from "./$"
+import Query, {$} from "./query"
 
 export default Query
 export { $ }
