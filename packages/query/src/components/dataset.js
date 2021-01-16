@@ -1,110 +1,99 @@
+import Dataset from "../dataset"
+import {$} from "../query";
+import {isEmpty, isNull} from "@metro5/utils";
 import {camelCase} from "@metro5/cake";
-import {UID, isEmpty} from "@metro5/utils";
+import dataAttr from "../helpers/data-attr";
 
-class Dataset {
-    constructor(ns = "") {
-        this.uid = UID('ds');
-        this.timestamp = + new Date();
-        this.ns = ns;
-        this.dataset = "DATASET:" + ns.toUpperCase();
+const dataSet  = new Dataset("metro5")
+
+$.hasData = (elem) => dataSet.hasData(elem)
+$.data = (elem, key, val) => dataSet.access(elem, key, val)
+$.removeData = (elem, key) => dataSet.remove(elem, key)
+$.dataSet = (ns) => {
+    if (isNull(ns) || isEmpty(ns)) return dataSet;
+    if (['METRO5'].includes(ns.toUpperCase())) {
+        throw Error("You can not use reserved name for your dataset");
     }
+    return new Dataset(ns);
+}
 
-    get UID(){
-        return this.uid
-    }
+const Data = {
+    data(key, val){
+        let res, elem, data, attrs, name, i;
 
-    get NS(){
-        return this.ns
-    }
-
-    get TIMESTAMP(){
-        return this.timestamp
-    }
-
-    canAcceptData(owner){
-        return owner.nodeType === 1 || owner.nodeType === 9 || !( +owner.nodeType );
-    }
-
-    cache(owner){
-        let value = owner[this.dataset];
-        if (!value) {
-            value = {};
-            if (this.canAcceptData(owner)) {
-                if (owner.nodeType) {
-                    owner[this.dataset] = value;
-                } else {
-                    Object.defineProperty(owner, this.dataset, {
-                        value: value,
-                        configurable: true
-                    });
-                }
-            }
-        }
-        return value;
-    }
-
-    set(owner, data, value){
-        let prop;
-        const cache = this.cache(owner);
-
-        if (typeof data === "string") {
-            cache[camelCase(data)] = value;
-        } else {
-            for (prop in data) {
-                if (data.hasOwnProperty(prop))
-                    cache[camelCase(prop)] = data[prop];
-            }
-        }
-        return cache;
-    }
-
-    get(owner, key){
-        return key === undefined ? this.cache(owner) : owner[ this.dataset ] && owner[ this.dataset ][ camelCase( key ) ];
-    }
-
-    access(owner, key, value){
-        if (key === undefined || ((key && typeof key === "string") && value === undefined) ) {
-            return this.get(owner, key);
-        }
-        this.set(owner, key, value);
-        return value !== undefined ? value : key;
-    }
-
-    remove(owner, key){
-        let i;
-        const cache = owner[this.dataset];
-        if (cache === undefined) {
+        if (this.length === 0) {
             return ;
         }
-        if (key !== undefined) {
-            if ( Array.isArray( key ) ) {
-                key = key.map( camelCase );
-            } else {
-                key = camelCase( key );
 
-                key = key in cache ? [ key ] : ( key.match( /[^\x20\t\r\n\f]+/g ) || [] );
+        elem = this[0];
+
+        if ( arguments.length === 0 ) {
+            if ( this.length ) {
+                data = dataSet.get( elem );
+
+                if ( elem.nodeType === 1) {
+                    attrs = elem.attributes;
+                    i = attrs.length;
+                    while ( i-- ) {
+                        if ( attrs[ i ] ) {
+                            name = attrs[ i ].name;
+                            if ( name.indexOf( "data-" ) === 0 ) {
+                                name = camelCase( name.slice( 5 ) );
+                                dataAttr( elem, name, data[ name ] );
+                            }
+                        }
+                    }
+                }
             }
 
-            i = key.length;
-
-            while ( i-- ) {
-                delete cache[ key[ i ] ];
-            }
+            return data;
         }
-        if ( key === undefined || isEmpty( cache ) ) {
-            if ( owner.nodeType ) {
-                owner[ this.dataset ] = undefined;
-            } else {
-                delete owner[ this.dataset ];
-            }
-        }
-        return true;
-    }
 
-    hasData(owner){
-        const cache = owner[ this.dataset ];
-        return cache !== undefined && !isEmpty( cache );
+        if ( arguments.length === 1 ) {
+            res = dataSet.get(elem, key);
+            if (res === undefined) {
+                if ( elem.nodeType === 1) {
+                    if (elem.hasAttribute("data-"+key)) {
+                        res = elem.getAttribute("data-"+key);
+                    }
+                }
+            }
+            return res;
+        }
+
+        return this.each( function() {
+            dataSet.set( this, key, val );
+        } );
+    },
+
+    removeData( key ) {
+        return this.each( function() {
+            dataSet.remove( this, key );
+        } );
+    },
+
+    origin(name, value, def){
+
+        if (this.length === 0) {
+            return this;
+        }
+
+        if (isNull(name) && isEmpty(value)) {
+            return $.data(this[0]);
+        }
+
+        if (isNull(value)) {
+            let res = $.data(this[0], "origin-"+name);
+            return !!res ? res : def;
+        }
+
+        this.data("origin-"+name, value);
+
+        return this;
     }
 }
 
-export default Dataset;
+export default Data
+export {
+    dataSet
+}
