@@ -20,6 +20,8 @@ import parseHTML from "./components/parse-html"
 import serialize, {serializeToQueryString} from "./components/serialize"
 import nearest from "./components/nearest"
 import between from "./components/between"
+import hasProp from "./components/has-prop"
+import merge from "./components/merge"
 
 export {
     each,
@@ -44,5 +46,7 @@ export {
     serialize,
     serializeToQueryString,
     nearest,
-    between
+    between,
+    hasProp,
+    merge
 }

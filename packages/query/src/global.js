@@ -1,5 +1,6 @@
 import {getGlobalObject} from "@metro5/utils"
-import Query, { $ } from "./class.js"
+import Query from "./class.js"
+import $ from "./$"
 
 const _global = getGlobalObject()
 

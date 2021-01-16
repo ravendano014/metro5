@@ -43,6 +43,7 @@ import startWith from "./check/start_with"
 import {stripTags, stripTagsAll} from "./effects/strip_tags"
 import {sprintf, vsprintf} from "./format/sprintf"
 import includes from "./check/includes"
+import split from "./split/split"
 
 export default {
     camelCase,
@@ -98,6 +99,7 @@ export default {
     stripTagsAll,
     sprintf,
     vsprintf,
-    includes
+    includes,
+    split
 }
 

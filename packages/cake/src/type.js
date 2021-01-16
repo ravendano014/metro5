@@ -270,6 +270,11 @@ class Cake {
     includes(sub, pos){
         return f.includes(this.value, sub, pos)
     }
+
+    split(sep, limit, trim){
+        this.value = f.split(this.value, sep, limit, trim)
+        return this
+    }
 }
 
 const cake = function(s){
