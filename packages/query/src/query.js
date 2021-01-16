@@ -5,6 +5,7 @@ import $ from "./$"
 import Attributes from './components/attributes'
 import Script from "./components/script"
 import Events from "./components/events"
+import Classes from "./components/classes"
 
 export default class Query extends Array {
     constructor(sel, ctx, opt) {
@@ -130,4 +131,4 @@ Query.use = function(...mixins){
     Object.assign(Query.prototype, ...mixins);
 };
 
-Query.use(Attributes, Script, Events)
+Query.use(Attributes, Script, Events, Classes)

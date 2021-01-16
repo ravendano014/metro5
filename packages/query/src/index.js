@@ -1,4 +1,4 @@
-import Query from "./class.js"
+import Query from "./query"
 import $ from "./$"
 
 export default Query

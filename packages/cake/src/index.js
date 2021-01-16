@@ -40,12 +40,13 @@ import isEmpty from "./check/is_empty";
 import isLower from "./check/is_lower";
 import isUpper from "./check/is_upper";
 import startWith from "./check/start_with";
-import {stripTags, stripTagsAll} from "./effects/strip_tags";
-import {sprintf, vsprintf} from "./format/sprintf";
-import includes from "./check/includes";
-import split from "./split/split";
+import {stripTags, stripTagsAll} from "./effects/strip_tags"
+import {sprintf, vsprintf} from "./format/sprintf"
+import includes from "./check/includes"
+import split from "./split/split"
+import stripe from "./effects/stripe"
 
-export {default} from "./type";
+export {default} from "./type"
 export {cake} from "./type"
 export {
     camelCase,
@@ -102,5 +103,6 @@ export {
     sprintf,
     vsprintf,
     includes,
-    split
+    split,
+    stripe
 }

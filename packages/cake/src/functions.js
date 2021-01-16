@@ -44,6 +44,7 @@ import {stripTags, stripTagsAll} from "./effects/strip_tags"
 import {sprintf, vsprintf} from "./format/sprintf"
 import includes from "./check/includes"
 import split from "./split/split"
+import stripe from "./effects/stripe"
 
 export default {
     camelCase,
@@ -100,6 +101,7 @@ export default {
     sprintf,
     vsprintf,
     includes,
-    split
+    split,
+    stripe
 }
 

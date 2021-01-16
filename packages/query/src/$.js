@@ -1,4 +1,4 @@
-import Query from "./class";
+import Query from "./query";
 import {each, matches, merge} from "@metro5/utils";
 
 const $ = function(sel, ctx){
