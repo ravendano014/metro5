@@ -1,4 +1,4 @@
-import Datetime, {datetime} from "../type";
+import {Datetime, datetime} from "../type";
 
 const fnAlign = Datetime.align;
 const fnAlignEnd = Datetime.alignEnd;

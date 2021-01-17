@@ -1,6 +1,6 @@
-import Datetime, {datetime} from "./type";
+import {Datetime, datetime} from "./type";
 
-export default Datetime
 export {
+    Datetime,
     datetime
 }

@@ -10,7 +10,7 @@ import HSV from "./primitives/hsv";
 import RGBA from "./primitives/rgba";
 import RGB from "./primitives/rgb";
 
-import color from "./helpers/color";
+import colorValue from "./helpers/color-value";
 import colorType from "./helpers/color-type";
 import colors from "./helpers/colors";
 import createColor from "./helpers/create-color";
@@ -92,7 +92,7 @@ export default {
     RGB,
     RGBA,
 
-    color,
+    colorValue,
     colorType,
     colors,
     createColor,

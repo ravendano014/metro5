@@ -1,5 +1,5 @@
 import {INVALID_DATE} from "../const";
-import Datetime, {datetime} from "../type";
+import {Datetime, datetime} from "../type";
 
 Datetime.useStatic({
     from(str, format, locale){

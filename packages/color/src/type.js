@@ -5,11 +5,11 @@ import isColor from "./check/is-color";
 import {each} from "@metro5/utils";
 import colorTypes from "./defines/color-types";
 
-export function color(c, o){
+const color = function (c, o){
     return new Color(c, o)
 }
 
-export default class Color {
+class Color {
     constructor(c, o) {
         this._options = Object.assign({}, defaultColorConfig, o)
         this._value = f.parse(c)
@@ -250,4 +250,8 @@ Color.from = (val) => {
     }
 
     return color(_color)
+}
+
+export {
+    Color, color
 }

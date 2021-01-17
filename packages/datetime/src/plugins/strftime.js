@@ -1,5 +1,5 @@
 import {REGEX_FORMAT_STRFTIME, DEFAULT_FORMAT_STRFTIME} from "../const"
-import Datetime, {datetime} from "../type";
+import {Datetime, datetime} from "../type";
 import {lpad} from "@metro5/cake";
 
 import "./century"

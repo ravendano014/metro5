@@ -1,4 +1,4 @@
-import Datetime, {datetime} from "../type";
+import {Datetime, datetime} from "../type";
 
 Datetime.use({
     // 1 - Monday, 0 - Sunday

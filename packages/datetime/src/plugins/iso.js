@@ -1,5 +1,5 @@
 import {DEFAULT_FORMAT} from "../const";
-import Datetime, {datetime} from "../type";
+import {Datetime, datetime} from "../type";
 
 const fnFormat = Datetime.prototype.format;
 const fnAlign = Datetime.align;

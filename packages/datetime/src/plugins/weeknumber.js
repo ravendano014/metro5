@@ -1,5 +1,5 @@
 import {DEFAULT_FORMAT} from "../const";
-import Datetime, {datetime} from "../type";
+import {Datetime, datetime} from "../type";
 import "./timezone"
 
 const fnFormat = Datetime.prototype.format;

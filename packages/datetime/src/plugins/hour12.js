@@ -1,5 +1,5 @@
 import {DEFAULT_FORMAT} from "../const";
-import Datetime from "../type";
+import {Datetime} from "../type";
 import {lpad} from "@metro5/cake";
 
 const fnFormat = Datetime.prototype.format;

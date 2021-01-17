@@ -1,4 +1,4 @@
-import Datetime from "../type";
+import {Datetime} from "../type";
 
 Datetime.use({
     decade(){

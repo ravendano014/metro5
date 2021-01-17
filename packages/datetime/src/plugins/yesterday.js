@@ -1,4 +1,4 @@
-import Datetime, {datetime} from "../type";
+import {Datetime, datetime} from "../type";
 
 Datetime.useStatic({
     isYesterday(date){

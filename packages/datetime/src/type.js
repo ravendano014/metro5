@@ -295,8 +295,7 @@ Datetime.useStatic = (obj) => {
     Datetime.extend(Datetime, obj);
 }
 
-export default Datetime
-export const datetime = function(){
+const datetime = function(){
     let args
 
     if (arguments[0] instanceof Datetime) {
@@ -306,4 +305,8 @@ export const datetime = function(){
     args = [].slice.call(Array.isArray(arguments[0]) ? arguments[0] : arguments)
 
     return new (Function.prototype.bind.apply(Datetime,  [this].concat(args) ) )
+}
+
+export {
+    Datetime, datetime
 }
