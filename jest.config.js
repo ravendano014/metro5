@@ -1,10 +1,12 @@
 module.exports = {
     collectCoverage: true,
     collectCoverageFrom: [
-        'packages/**/*.{js}',
+        'packages/src/**/*.{js}',
         '!**/node_modules/**',
     ],
     roots: [
         'packages/',
     ],
+    cacheDirectory: "<root>.cache",
+    coverageDirectory: "<root>.coverage",
 };
