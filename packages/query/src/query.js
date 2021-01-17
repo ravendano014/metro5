@@ -1,5 +1,5 @@
 import {defaultOptions} from "./helpers/const"
-import {UID, isArrayLike, each, isPlainObject, merge, matches} from "@metro5/utils"
+import {UID, isArrayLike, each, isPlainObject, merge, parseHTML} from "@metro5/utils"
 import {split} from "@metro5/cake"
 import Attributes from './components/attributes'
 import Script from "./components/script"
@@ -13,7 +13,7 @@ export default class Query extends Array {
 
         this._selector = sel
         this._context = ctx
-        this._options = Object.assign({}, defaultOptions, opt)
+        this._options =  Object.assign({}, defaultOptions, opt)
         this._uid = UID(this._options.uid)
         this._timestamp = +new Date()
         this._prevObj = this._options.prevObj
@@ -40,7 +40,7 @@ export default class Query extends Array {
         }
 
         if (typeof sel === "function") {
-            return $.ready(sel);
+            return document.addEventListener("DOMContentLoaded", sel, false)
         }
 
         if (sel instanceof Element) {
@@ -81,7 +81,7 @@ export default class Query extends Array {
 
         if (sel[0] === "@") {
 
-            each($("[data-role]"), (i, v) => {
+            each(new Query("[data-role]"), (i, v) => {
                 let roles = split($(v).attr("data-role"), ",");
                 if (roles.includes(sel.slice(1))) {
                     that.push(v);
@@ -90,7 +90,7 @@ export default class Query extends Array {
 
         } else {
 
-            parsed = $.parseHTML(sel);
+            parsed = parseHTML(sel);
 
             if (parsed.length === 1 && parsed[0].nodeType === 3) { // Must be a text node -> css sel
                 try {
@@ -99,19 +99,19 @@ export default class Query extends Array {
                     //console.error(sel + " is not a valid selector");
                 }
             } else {
-                $.merge(this, parsed);
+                merge(this, parsed);
             }
         }
 
         if (ctx !== undefined) {
             if (ctx instanceof $ || ctx instanceof Element) {
                 this.each( (i, el) => {
-                    $(ctx).append(el);
+                    new Query(ctx).append(el);
                 });
             } else {
                 if (isPlainObject(ctx)) {
-                    $.each(this,(i, el) => {
-                        $.each(ctx, (attr, val) => {
+                    each(this,(i, el) => {
+                        each(ctx, (attr, val) => {
                             el.setAttribute(attr, val);
                         })
                     });
@@ -133,37 +133,3 @@ Query.use = function(...mixins){
 
 Query.use(Data, Attributes, Script, Events, Classes)
 
-const $ = function(sel, ctx){
-    return new Query(sel, ctx)
-}
-
-$.merge = merge
-$.each = each
-$.matches = matches
-
-$.meta = (name) => !name ? $("meta") : $("meta[name='$name']".replace("$name", name))
-$.metaBy = (name) => !name ? $("meta") : $("meta[$name]".replace("$name", name))
-$.html = $('html')
-$.doctype = $("doctype")
-$.head = $('head')
-$.body = $('body')
-$.document = $('document')
-$.window = $('window')
-$.charset = (val) => {
-    const meta = $("meta[charset]");
-    if (val) {
-        meta.attr("charset", val);
-    }
-    return meta.attr("charset");
-}
-
-$.proxy = (fn, ctx) => typeof fn !== "function" ? undefined : fn.bind(ctx)
-$.bind = $.proxy
-
-$.noop = () => {}
-$.noop_true = () => true
-$.noop_false = () => false
-
-export {
-    $
-}

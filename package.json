@@ -27,6 +27,13 @@
   "license": "MIT",
   "scripts": {
     "test": "lerna run test --stream",
+    "test:animation": "lerna --scope @metro5/animation exec -- npm run test",
+    "test:cake": "lerna --scope @metro5/cake exec -- npm run test",
+    "test:color": "lerna --scope @metro5/color exec -- npm run test",
+    "test:core": "lerna --scope @metro5/core exec -- npm run test",
+    "test:datetime": "lerna --scope @metro5/datetime exec -- npm run test",
+    "test:query": "lerna --scope @metro5/query exec -- npm run test",
+    "test:utils": "lerna --scope @metro5/utils exec -- npm run test",
     "update:version": "lerna version --no-push",
     "bootstrap": "lerna bootstrap --use-workspaces",
     "build": "lerna run build --stream",

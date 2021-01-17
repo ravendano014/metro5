@@ -1,6 +1,5 @@
 import {camelCase} from "@metro5/cake";
-import {UID, isEmpty, isNull} from "@metro5/utils";
-import { $ } from "../query"
+import {UID, isEmpty} from "@metro5/utils";
 
 class Dataset {
     constructor(ns = "") {

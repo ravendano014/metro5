@@ -1,9 +1,9 @@
 import toStr from "../helpers/string/to_string";
-import {isNull} from "@metro5/utils";
+import isEmpty from "../check/is_empty";
 
-export default function split(str, sep = "", limit = null, trim = true){
+export default function split(str, sep = undefined, limit = undefined, trim = true){
     return toStr(str)
         .split(sep, limit)
-        .map( el => typeof el === "string" && trim ? el.trim() : el )
-        .filter( el => trim ? !isNull(el) : true)
+        .map( el => trim ? el.trim() : el )
+        .filter( el => trim ? !isEmpty(el) : true)
 }

@@ -1,6 +1,6 @@
 import {split} from "@metro5/cake";
 import {isNull} from "@metro5/utils";
-import {$} from "../query"
+import $ from "../$"
 
 const Classes = {
     addClass(){},
@@ -58,11 +58,12 @@ const Classes = {
 const methods = ['add', 'remove', 'toggle']
 
 methods.forEach(function (method) {
-    Classes[method + "Class"] = (cls) => {
+    Classes[method + "Class"] = function(cls) {
         if (!cls)
             return this
 
         return this.each((i, el) => {
+            console.log(cls, split(cls, " "))
             $.each(split(cls, " "), (k, v) => {
                 el.classList[method](v);
             });

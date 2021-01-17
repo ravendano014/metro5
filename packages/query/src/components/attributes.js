@@ -1,4 +1,4 @@
-import {$} from "../query"
+import $ from "../$"
 import {isNull, isPlainObject} from "@metro5/utils";
 import {split} from "@metro5/cake";
 

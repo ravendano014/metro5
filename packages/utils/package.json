@@ -4,7 +4,7 @@
     "main": "./src/index.js",
     "license": "MIT",
     "scripts": {
-        "test": "jest --color --coverage",
+        "test": "jest --color",
         "build": "rimraf -rf dist lib && npm run build-universal && npm run build-module",
         "build-universal": "rollup -c config/rollup/dist.umd-min.js && rollup -c config/rollup/dist.umd.js",
         "build-module": "rollup -c config/rollup/module.umd.js && rollup -c config/rollup/module.es.js"

@@ -1,21 +1,10 @@
 import Dataset from "../dataset"
-import {$} from "../query";
 import {isEmpty, isNull} from "@metro5/utils";
 import {camelCase} from "@metro5/cake";
 import dataAttr from "../helpers/data-attr";
+import $ from "../$"
 
 const dataSet  = new Dataset("metro5")
-
-$.hasData = (elem) => dataSet.hasData(elem)
-$.data = (elem, key, val) => dataSet.access(elem, key, val)
-$.removeData = (elem, key) => dataSet.remove(elem, key)
-$.dataSet = (ns) => {
-    if (isNull(ns) || isEmpty(ns)) return dataSet;
-    if (['METRO5'].includes(ns.toUpperCase())) {
-        throw Error("You can not use reserved name for your dataset");
-    }
-    return new Dataset(ns);
-}
 
 const Data = {
     data(key, val){
