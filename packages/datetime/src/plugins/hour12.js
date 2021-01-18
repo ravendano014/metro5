@@ -35,7 +35,7 @@ Datetime.use({
             a: "["+this.ampm(true)+"]",
             A: "["+this.ampm(false)+"]",
             h: h12,
-            hh: lpad(h12, "0", 2)
+            hh: lpad(h12, 2, "0")
         };
 
         result = format.replace(/(\[[^\]]+])|a|A|h{1,2}/g, (match, $1) => $1 || matches[match]);

@@ -5,39 +5,37 @@ const fnFormat = Datetime.prototype.format;
 const fnAlign = Datetime.align;
 const fnAlignEnd = Datetime.alignEnd;
 
-Datetime.useStatic({
-    align(d, align){
-        let date = datetime(d), result, temp;
+Datetime.align = (d, align) => {
+    let date = datetime(d), result, temp;
 
-        switch(align) {
-            case "isoWeek":
-                temp = date.isoWeekDay();
-                result = fnAlign(date, 'day').addDay(-temp + 1);
-                break; // isoWeek
+    switch(align) {
+        case "isoWeek":
+            temp = date.isoWeekDay();
+            result = fnAlign(date, 'day').addDay(-temp + 1);
+            break; // isoWeek
 
-            default: result = fnAlign.apply(this, [date, align]);
-        }
-
-        return result;
-    },
-
-    alignEnd(d, align){
-        let date = datetime(d), result, temp;
-
-        switch(align) {
-            case "isoWeek":
-                temp = date.isoWeekDay();
-                result = fnAlignEnd(date, 'day').addDay(7 - temp);
-                break; // isoWeek
-
-            default: result = fnAlignEnd.apply(this, [date, align]);
-        }
-
-        return result;
+        default: result = fnAlign.apply(this, [date, align]);
     }
-})
 
-Datetime.use({
+    return result;
+}
+
+Datetime.alignEnd = (d, align) => {
+    let date = datetime(d), result, temp;
+
+    switch(align) {
+        case "isoWeek":
+            temp = date.isoWeekDay();
+            result = fnAlignEnd(date, 'day').addDay(7 - temp);
+            break; // isoWeek
+
+        default: result = fnAlignEnd.apply(this, [date, align]);
+    }
+
+    return result;
+}
+
+Object.assign(Datetime.prototype, {
     isoWeekDay(val){
         let wd = (this.weekDay() + 6) % 7 + 1;
 

@@ -1,4 +1,4 @@
-import {datetime} from "../src"
+import {Datetime, datetime} from "../src"
 import "../src/plugins/calendar"
 import "../src/plugins/iso"
 

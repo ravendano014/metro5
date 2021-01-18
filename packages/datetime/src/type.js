@@ -186,22 +186,22 @@ class Datetime {
             YY: year2,
             YYYY: year,
             M: month + 1,
-            MM: lpad(month + 1, "0", 2),
+            MM: lpad(month + 1, 2, "0"),
             MMM: names.monthsShort[month],
             MMMM: names.months[month],
             D: day,
-            DD: lpad(day, "0", 2),
+            DD: lpad(day, 2, "0"),
             d: weekDay,
             dd: names.weekdaysMin[weekDay],
             ddd: names.weekdaysShort[weekDay],
             dddd: names.weekdays[weekDay],
             H: hour,
-            HH: lpad(hour, "0", 2),
+            HH: lpad(hour, 2, "0"),
             m: minute,
-            mm: lpad(minute,"0", 2),
+            mm: lpad(minute, 2, "0"),
             s: second,
-            ss: lpad(second,"0", 2),
-            sss: lpad(ms,"0", 3)
+            ss: lpad(second, 2,"0"),
+            sss: lpad(ms, 3,"0")
         };
 
         return format.replace(Const.REGEX_FORMAT, (match, $1) => $1 || matches[match]);
@@ -272,38 +272,19 @@ Datetime.alignEnd = (date, align) => {
     return result;
 }
 
-Datetime.extend = (where) => {
-    let options, name, length = arguments.length;
-
-    for (let i = 1; i < length; i++ ) {
-        if ( ( options = arguments[ i ] ) != null ) {
-            for ( name in options ) {
-                if (Object.prototype.hasOwnProperty.call(options, name))
-                    where[ name ] = options[ name ];
-            }
-        }
-    }
-
-    return where;
-};
-
 Datetime.use = (obj) => {
-    Datetime.extend(Datetime.prototype, obj);
+    Object.assign(Datetime.prototype, obj);
 }
 
 Datetime.useStatic = (obj) => {
-    Datetime.extend(Datetime, obj);
+    Object.assign(Datetime, obj);
 }
+
 
 const datetime = function(){
     let args
-
-    if (arguments[0] instanceof Datetime) {
-        return datetime(arguments[0].value);
-    }
-
+    if (arguments[0] instanceof Datetime) return datetime(arguments[0].value)
     args = [].slice.call(Array.isArray(arguments[0]) ? arguments[0] : arguments)
-
     return new (Function.prototype.bind.apply(Datetime,  [this].concat(args) ) )
 }
 

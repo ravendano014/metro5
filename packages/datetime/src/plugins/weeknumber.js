@@ -1,9 +1,9 @@
-import {DEFAULT_FORMAT} from "../const";
-import {Datetime, datetime} from "../type";
+import {DEFAULT_FORMAT} from "../const"
+import {Datetime, datetime} from "../type"
 import "./timezone"
+import {lpad} from "@metro5/cake"
 
 const fnFormat = Datetime.prototype.format;
-const lpad = Datetime.lpad;
 
 Datetime.use({
     // TODO Need optimisation
@@ -49,9 +49,9 @@ Datetime.use({
 
         matches = {
             W: wn,
-            WW: lpad(wn, "0", 2),
+            WW: lpad(wn, 2, "0"),
             WWW: wni,
-            WWWW: lpad(wni, "0", 2)
+            WWWW: lpad(wni, 2, "0")
         };
 
         result = format.replace(/(\[[^\]]+])|W{1,4}/g, (match, $1) => $1 || matches[match]);

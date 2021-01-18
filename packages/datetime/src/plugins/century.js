@@ -15,8 +15,8 @@ Datetime.use({
             C: this.century()
         }
 
-        let result = format.replace(/(\[[^\]]+])|C/g, (match, $1) => $1 || matches[match])
+        let fmt = format.replace(/(\[[^\]]+])|C/g, (match, $1) => $1 || matches[match])
 
-        return fnFormat.bind(this)(result, locale)
+        return fnFormat.bind(this)(fmt, locale)
     }
 })

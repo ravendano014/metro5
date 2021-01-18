@@ -15,13 +15,13 @@ Datetime.use({
         const names = Datetime.getLocale(locale || this.locale);
         const year = this.year(), year2 = this.year2(), month = this.month(), day = this.day(), weekDay = this.weekDay();
         const hour = this.hour(), hour12 = this.hour12(), minute = this.minute(), second = this.second(), ms = this.ms(), time = this.time();
-        const aDay = lpad(day, "0", 2),
-            aMonth = lpad(month + 1, "0", 2),
-            aHour = lpad(hour, "0", 2),
-            aHour12 = lpad(hour12, "0", 2),
-            aMinute = lpad(minute, "0", 2),
-            aSecond = lpad(second, "0", 2),
-            aMs = lpad(ms, "0", 3);
+        const aDay = lpad(day, 2, "0"),
+            aMonth = lpad(month + 1, 2, "0"),
+            aHour = lpad(hour, 2, "0"),
+            aHour12 = lpad(hour12, 2, "0"),
+            aMinute = lpad(minute, 2, "0"),
+            aSecond = lpad(second, 2, "0"),
+            aMs = lpad(ms, 3, "0");
 
         const that = this;
 
@@ -45,7 +45,7 @@ Datetime.use({
             '%g': (""+thursday().year()).slice(2),
             '%H': aHour,
             '%I': aHour12,
-            '%j': lpad(this.dayOfYear(), "0", 3),
+            '%j': lpad(this.dayOfYear(), 3,"0"),
             '%k': aHour,
             '%l': aHour12,
             '%m': aMonth,
